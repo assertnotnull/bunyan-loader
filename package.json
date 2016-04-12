@@ -1,0 +1,30 @@
+{
+  "name": "bunyan-loader",
+  "version": "1.0.0",
+  "description": "A small module to ease and normalize the initialization of bunyan",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/assertnotnull/bunyan-loader"
+  },
+  "keywords": [
+    "bunyan",
+    "logging",
+    "log"
+  ],
+  "author": "Patrice Gauthier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/assertnotnull/bunyan-loader/issues"
+  },
+  "homepage": "https://github.com/assertnotnull/bunyan-loader",
+  "dependencies": {
+    "bunyan": "^1.8.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  }
+}
