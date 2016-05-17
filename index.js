@@ -1,7 +1,14 @@
-global.bunyan = require('bunyan');
+var bunyan = require('bunyan');
 var cluster = require('cluster');
+var cachedLogger;
 
+/**
+ * @param config
+ * @returns bunyan
+ */
 module.exports = function (config) {
+    if (cachedLogger)
+        return cachedLogger;
     var stream = [];
     var logExtension = '.log';
 
@@ -23,13 +30,14 @@ module.exports = function (config) {
         });
     }
 
-    global.glogger = bunyan.createLogger({
+    cachedLogger = bunyan.createLogger({
         name: config.log.name,
         serializers: bunyan.stdSerializers,
         streams: stream
     }); //global logger
 
     process.on('uncaughtException', function (err) {
-        glogger.error(err);
+        cachedLogger.error(err);
     });
+    return cachedLogger;
 };
