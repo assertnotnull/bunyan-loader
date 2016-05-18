@@ -1,6 +1,6 @@
 # Bunyan loader
 
-Provides a simple common structure to load bunyan.
+Provides a simple common way to load bunyan.
 
 A config file containing such structure is needed:
 ```
@@ -18,12 +18,19 @@ config.log = {
 
 Instantiate once using
 
-`var bunyan = require('bunyan-loader')(config);`
+```
+var bunyan = require('bunyan-loader')(config)
+bunyan.info('i am logging')
+```
 
-Then can be used anywhere like this:
+Then reuse it in other modules by calling require without the config:
 
-- `bunyan.info('blabla')`
-- `var childlogger = bunyan.child({'scope': 'mycurrentfile'}); childlogger.info('i have more properties!')`
+```
+var logger = require('bunyan-loader')()
+logger.info('blabla')`
+```
+
+`var childlogger = logger.child({'scope': 'mycurrentfile'}); childlogger.info('i have more properties!')`
 
 ## How to use:
 - using the local bunyan: `NODE_ENV=development nodemon server.js|./node_modules/.bin/bunyan`
