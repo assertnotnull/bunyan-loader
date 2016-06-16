@@ -1,6 +1,6 @@
 {
   "name": "bunyan-loader",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A small module to ease and normalize the initialization of bunyan",
   "main": "index.js",
   "scripts": {

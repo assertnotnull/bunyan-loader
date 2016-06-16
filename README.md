@@ -6,20 +6,22 @@ A config file containing such structure is needed:
 ```
 config.log = {
 	name: 'myapp',
-	console: {
-		level: 'INFO'
-	},
-	fileinfo: {
-		filename: './myapp',
-		level: 'INFO'
-	}
+	streams: [{
+                level: 'DEBUG',
+                stream: process.stdout
+            },
+            {
+                level: 'INFO',
+                type: 'file',
+                path: 'whatever.log'
+            }]
 };
 ```
 
 Instantiate once using
 
 ```
-var bunyan = require('bunyan-loader')(config)
+var bunyan = require('bunyan-loader')(config.log);
 bunyan.info('i am logging')
 ```
 
