@@ -22,9 +22,6 @@
   },
   "homepage": "https://github.com/assertnotnull/bunyan-loader",
   "dependencies": {
-    "bunyan": "^1.8.0"
-  },
-  "devDependencies": {
-    "mocha": "^2.4.5"
+    "bunyan": "^1.8.1"
   }
 }
