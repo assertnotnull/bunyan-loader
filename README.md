@@ -1,27 +1,25 @@
 # Bunyan loader
 
-Provides a simple common way to load bunyan.
+Provides a simple way to cache the bunyan instance.
 
-A config file containing such structure is needed:
+Also automatically sends uncaught exceptions to logged by bunyan
+
+It passes the config of bunyan
 ```
-config.log = {
-	name: 'myapp',
-	streams: [{
-                level: 'DEBUG',
-                stream: process.stdout
-            },
-            {
-                level: 'INFO',
-                type: 'file',
-                path: 'whatever.log'
-            }]
-};
+var bunyanconfig = {
+        name: 'myapp',
+        streams: [{
+            level: 'INFO',
+            stream: process.stdout
+        }]
+    };
 ```
+See: https://github.com/trentm/node-bunyan#constructor-api
 
 Instantiate once using
 
 ```
-var bunyan = require('bunyan-loader')(config.log);
+var bunyan = require('bunyan-loader')(bunyanconfig);
 bunyan.info('i am logging')
 ```
 

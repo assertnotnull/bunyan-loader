@@ -9,11 +9,7 @@ module.exports = function (config) {
     if (cachedLogger)
         return cachedLogger;
 
-    cachedLogger = bunyan.createLogger({
-        name: config.name,
-        serializers: bunyan.stdSerializers,
-        streams: config.streams
-    });
+    cachedLogger = bunyan.createLogger(config);
 
     process.on('uncaughtException', function (err) {
         cachedLogger.error(err);
